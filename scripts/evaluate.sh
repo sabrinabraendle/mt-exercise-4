@@ -23,7 +23,7 @@ device=0
 
 SECONDS=0
 
-model_name=deen_transformer_regular
+model_name=deen_transformer_prenorm
 
 echo "###############################################################################"
 echo "model_name $model_name"
