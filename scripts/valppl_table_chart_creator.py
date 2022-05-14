@@ -40,7 +40,7 @@ def create_chart(ppl_table):
     ppl_plot = ppl_table.plot(figsize=(10,5))
     ppl_fig = ppl_plot.get_figure()
 
-    ppl_fig.savefig('ppl.pdf')
+    ppl_fig.savefig('../visualization/ppl.pdf')
 
 
 def main():
@@ -61,10 +61,10 @@ def main():
     print(ppl_df)
 
     # Write data frame to csv file
-    ppl_df.to_csv(r'perplexity_table.csv', header=True, index_label='Validation ppl')
+    ppl_df.to_csv(r'../visualization/perplexity_table.csv', header=True, index_label='Validation ppl')
 
     # Write data frame to excel file
-    writer = pd.ExcelWriter('perplexity_table.xlsx', engine='openpyxl')
+    writer = pd.ExcelWriter('../visualization/perplexity_table.xlsx', engine='openpyxl')
     ppl_df.to_excel(writer, header=True, index_label='Validation ppl', sheet_name='Val ppl')
     writer.save()
     writer.close()
