@@ -1,7 +1,7 @@
 #! /bin/env/python
 
 """
-To create the perplexity table and the line chart, cd into 'scripts' and run $ python3 valppl_table_chart_creator.py.
+To create the perplexity table and the line chart, cd into 'mt-exercise-4' and run $ python3 valppl_table_chart_creator.py.
 """
 
 import pandas as pd
@@ -40,14 +40,14 @@ def create_chart(ppl_table):
     ppl_plot = ppl_table.plot(figsize=(10,5))
     ppl_fig = ppl_plot.get_figure()
 
-    ppl_fig.savefig('../visualization/ppl.pdf')
+    ppl_fig.savefig('visualization/ppl.pdf')
 
 
 def main():
     # Define file paths
-    base_path = '../logs/deen_transformer_regular/baseline.log'
-    pre_path = '../logs/deen_transformer_regular/baseline.log'
-    post_path = '../logs/deen_transformer_regular/baseline.log'
+    base_path = 'logs/deen_transformer_regular/baseline.log'
+    pre_path = 'logs/deen_transformer_prenorm/prenorm.log'
+    post_path = 'logs/deen_transformer_regular/baseline.log'
 
     # Get all the steps and validation perplexities for the generation of the table and the chart
     base_ppl = get_ppls(base_path)
@@ -61,10 +61,10 @@ def main():
     print(ppl_df)
 
     # Write data frame to csv file
-    ppl_df.to_csv(r'../visualization/perplexity_table.csv', header=True, index_label='Validation ppl')
+    ppl_df.to_csv(r'visualization/perplexity_table.csv', header=True, index_label='Validation ppl')
 
     # Write data frame to excel file
-    writer = pd.ExcelWriter('../visualization/perplexity_table.xlsx', engine='openpyxl')
+    writer = pd.ExcelWriter('visualization/perplexity_table.xlsx', engine='openpyxl')
     ppl_df.to_excel(writer, header=True, index_label='Validation ppl', sheet_name='Val ppl')
     writer.save()
     writer.close()
