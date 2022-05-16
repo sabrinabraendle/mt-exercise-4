@@ -47,7 +47,7 @@ def main():
     # Define file paths
     base_path = 'logs/deen_transformer_regular/baseline.log'
     pre_path = 'logs/deen_transformer_prenorm/prenorm.log'
-    post_path = 'logs/deen_transformer_regular/baseline.log'
+    post_path = 'logs/deen_transformer_postnorm/postnorm.log'
 
     # Get all the steps and validation perplexities for the generation of the table and the chart
     base_ppl = get_ppls(base_path)
